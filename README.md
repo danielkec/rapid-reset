@@ -21,7 +21,24 @@ Usage of the tool is meant only for testing and at one's own responsibility.
 
 
 ## Usage
+Server is either expected to be overwhelmed or the connection gets cut off 
+when server is immune to the attack (floating window counting). 
 
+By default, reproducer sends 100M requests with HEADERS frame followed 
+immediately by RST frame to http://localhost:8080. 
+
+Reproducer uses only single connection as it is meant for testing.
+
+```shell
+rapid-reset [uri [number-of-requests]]
+```
+
+### Java archive (JRE 21 or higher required)
+```shell
+java -jar rapid-reset-1.0-SNAPSHOT.jar https://localhost:8080
+```
+
+### Native binary
 ```shell
 rapid-reset https://localhost:8080
 ```
